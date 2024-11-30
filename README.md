@@ -1,2 +1,2 @@
 # NPC-Generator
-DnD NPC generator for easing the DM's work load
+DnD NPC generator for easing the Dungeon Master's work load
