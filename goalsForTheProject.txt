@@ -1,0 +1,10 @@
+Need to do:
+    - Need to make a formula that decides npc level based on party CR in case they want to fight them
+        - One thing that will make this difficult is that CR is determined on multiple factors such as overall party level,
+          magical items, and campaign progression, which makes it difficult to decide if this feature is even worth implementing
+    - Need to make a generation of the spell sheet based on spellcasting class and level 
+    - 
+
+Completed:
+    - Implement OpenAI API
+    - Print out a short description based on gender, race, and class
