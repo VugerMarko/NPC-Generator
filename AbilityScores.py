@@ -1,22 +1,14 @@
 import random
 
-Ability = {"STR": 0, "DEX": 0, "CON": 0, "INT": 0, "WIS": 0, "CHA": 0}
 
-sum = 0
+def roll_and_calculate():
+    dice = [random.randint(1, 6) for _ in range(4)]
     
-for key in Ability:
-    value = 1
+    dice = [random.randint(1, 6) if die == 1 else die for die in dice]
     
-    for tries in range(3):
+    dice.remove(min(dice))
     
-        while value == 1:
-            value = random.choice(range(2, 7))
-
-        sum += value          
-    
-    Ability[key] = sum
-    sum = 0
+    return sum(dice)
 
 
-for key, value in Ability.items():
-    print(f"{key}: {value}")
+    

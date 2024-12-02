@@ -2,7 +2,7 @@ import random
 import openai
 import time
 import os
-
+from AbilityScores import roll_and_calculate
 
 
 openai.api_key = "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"
@@ -11,6 +11,7 @@ npcClass = ["Barbarian", "Bard", "Cleric", "Druid", "Fighter", "Monk", "Paladin"
 
 npcRace = ["Elf", "Dragonborn", "Dwarf", "Gnome", "Human", "Orc", "Tiefling", "Halfling"]
 
+Ability = {"STR": 0, "DEX": 0, "CON": 0, "INT": 0, "WIS": 0, "CHA": 0}
 
 def createNPC(raceList, classList):
     dndrace = random.choice(raceList)
@@ -18,6 +19,10 @@ def createNPC(raceList, classList):
     
     npcLvl = random.choice([1, 20])
     
+    for key in Ability:
+        Ability[key] = roll_and_calculate()
+        
+
     gender = random.choice(["male", "female"])
     
     prompt = f"make a short description of a {gender} {dndrace} npc who is a {dndclass}, with name on top, key personality traits and physical traits."
@@ -37,9 +42,11 @@ def createNPC(raceList, classList):
     
     output = "Race: {} \nClass: {} \nGender: {} \n \n\n{}".format(dndrace, dndclass, gender, description)
     
+    for key, value in Ability.items():
+        print(f"{key}: {value}")
+    
     return output
 
-    
 
 
 
