@@ -48,10 +48,6 @@ def createNPC(raceList, classList):
     for index, (key, value) in enumerate(Ability.items()):
         print(f"{key}: {value} ({abilityModifier[index]})")
     
-    # for key, value in Ability.items():
-    #     print(f"{key}: {value}")
-    
-    
     return output
 
 
