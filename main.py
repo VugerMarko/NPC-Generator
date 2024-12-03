@@ -20,9 +20,12 @@ def createNPC(raceList, classList):
 
         ability_Bonus = abilityBonus(Ability[key])
         abilityModifier.append(ability_Bonus)
+        #This function does not work
+        # abilityScoreImprovement(Ability[key], objClass.classAbility)
         
 
     proficiencyBonus()
+    
 
     gender = random.choice(["male", "female"])
     
