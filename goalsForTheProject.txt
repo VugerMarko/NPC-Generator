@@ -4,6 +4,8 @@ Need to do:
           magical items, and campaign progression, which makes it difficult to decide if this feature is even worth implementing
     - Need to make a generation of the spell sheet based on spellcasting class and level 
     - Need to make ability score improvements feature
+    - Need to make a feature where when the data is pulled from the database, the script chooses up to three skills to add a proficiency bonus in
+    - Need to add a feature when the numbered rolls for the abilities are made, then the highest number is applied to the classes' ability
 
 Completed:
     - Need to make a functional database from where I will call information about classes

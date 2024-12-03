@@ -2,12 +2,16 @@ import random
 import openai
 from AbilityScores import *
 from data import *
+from database import DnDClass
 
 openai.api_key = "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"
 
 def createNPC(raceList, classList):
     dndrace = random.choice(raceList)
     dndclass = random.choice(classList)
+    
+    objClass = DnDClass()
+    objClass.loadClassName(dndclass)
     
     abilityModifier = []
     
@@ -37,7 +41,7 @@ def createNPC(raceList, classList):
     description = response['choices'][0]['message']['content'].strip()
     
     
-    output = "\nRace: {} \nClass: {} \nGender: {} \n \n\n{}".format(dndrace, dndclass, gender, description)
+    output = "\nRace: {} \nClass: {}\nAbility modifier: {}\nGender: {} \n \n\n{}".format(dndrace, dndclass, objClass.classAbility, gender, description)
     
     for index, (key, value) in enumerate(Ability.items()):
         print(f"{key}: {value} ({abilityModifier[index]})")

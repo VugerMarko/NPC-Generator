@@ -26,16 +26,16 @@ class DnDClass:
         
         
 #Testing the database usage
-class1 = DnDClass()
+# class1 = DnDClass()
 
-try:
-    class1.loadClassName('Wizard')
-    print(f"ID: {class1.id_num}")
-    print(f"Class Name: {class1.className}")
-    print(f"Class Ability: {class1.classAbility}")
-    print(f"Is Spellcaster: {class1.spellcaster}")
-except ValueError as e:
-    print(e)
+# try:
+#     class1.loadClassName('Bard')
+#     print(f"ID: {class1.id_num}")
+#     print(f"Class Name: {class1.className}")
+#     print(f"Class Ability: {class1.classAbility}")
+#     print(f"Is Spellcaster: {class1.spellcaster}")
+# except ValueError as e:
+#     print(e)
 
 
 #Old code for defining the database, want to keep it in case something happens
