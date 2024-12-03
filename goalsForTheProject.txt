@@ -4,9 +4,9 @@ Need to do:
           magical items, and campaign progression, which makes it difficult to decide if this feature is even worth implementing
     - Need to make a generation of the spell sheet based on spellcasting class and level 
     - Need to make ability score improvements feature
-    - Need to make a functional database from where I will call information about classes
 
 Completed:
+    - Need to make a functional database from where I will call information about classes
     - Implement OpenAI API
     - Need to make a callable function that counts proficiency bonus, based on level and count that in the ability scores
     - Print out a short description based on gender, race, and class
