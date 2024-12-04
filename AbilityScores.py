@@ -64,9 +64,14 @@ def abilityScoreImprovement(key, obj, increment, modifier):
 def proficientSkills(data, mainAbility):
     proficientSkillsList = []
     
-    for key in data.keys():
-        if key == mainAbility:
-            proficientSkillsList.append(key.keys())
-            
+    i = 0
+    
+    for key, value in data.items():
+        if value == mainAbility:
+            proficientSkillsList.append(key)
+        # if i <= 3:     
+        # i += 1            
+        
+    
     print(proficientSkillsList)
     return proficientSkillsList

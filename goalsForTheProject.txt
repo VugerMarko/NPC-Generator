@@ -3,10 +3,12 @@ Need to do:
         - One thing that will make this difficult is that CR is determined on multiple factors such as overall party level,
           magical items, and campaign progression, which makes it difficult to decide if this feature is even worth implementing
     - Need to make a generation of the spell sheet based on spellcasting class and level 
-    - Need to make a feature where when the data is pulled from the database, the script chooses up to three skills to add a proficiency bonus in
     - Need to add a feature when the numbered rolls for the abilities are made, then the highest number is applied to the classes' ability
 
+    - Need to make remake the class database so that it chooses up to 3 matching skills for that class instead choosing 3 based on ability type alone
+
 Completed:
+    - Need to make a feature where when the data is pulled from the database, the script chooses up to three skills to add a proficiency bonus in
     - Need to make ability score improvements feature
     - Need to make a functional database from where I will call information about classes
     - Implement OpenAI API
