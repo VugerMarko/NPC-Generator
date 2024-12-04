@@ -75,3 +75,4 @@ def proficientSkills(data, mainAbility):
     
     print(proficientSkillsList)
     return proficientSkillsList
+

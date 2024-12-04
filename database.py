@@ -24,7 +24,26 @@ class DnDClass:
         else:
             raise ValueError(f"Class with name {className} not found.")
         
+
+connection = sqlite3.connect("Specifications.db")
+
+cursor = connection.cursor()
         
+# Create a table for storing the skills for each class
+cursor.execute("""
+    CREATE TABLE IF NOT EXISTS class_skills(
+        id INTEGER PRIMARY KEY,
+        class_id INTEGER,
+        skill_name TEXT,
+        FOREIGN KEY (class_id) REFERENCES classes(id)
+    )
+""")
+
+
+connection.commit()
+
+connection.close()
+
 #Testing the database usage
 # class1 = DnDClass()
 
