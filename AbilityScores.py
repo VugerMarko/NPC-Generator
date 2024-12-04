@@ -46,6 +46,7 @@ def abilityScoreImprovement(key, obj, increment, modifier):
     
     oldModifier = abilityBonus(key[obj])
     
+    
     if obj in key:
         # print(key[obj])
         key[obj] += increment
@@ -57,6 +58,6 @@ def abilityScoreImprovement(key, obj, increment, modifier):
             modifier.pop(i)
             modifier.insert(i, newModifier)
         
-    # print(f"old modifier: {oldModifier}, new modifier: {newModifier}")
+    print(f"old modifier: {oldModifier}, new modifier: {newModifier}")
          
     return key, modifier
