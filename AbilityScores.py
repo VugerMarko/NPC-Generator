@@ -45,21 +45,10 @@ def proficiencyBonus():
 #this function does not work, needs improvement
 
 def abilityScoreImprovement(key, obj):
-    if not isinstance(key, dict):
-        raise TypeError(f"Expected `key` to be a dictionary, but got {type(key).__name__}.")
-    
-    if not isinstance(obj, str):
-        raise TypeError(f"Expected `obj` to be a string, but got {type(obj).__name__}.")
-    
-    if obj in key.keys():
-        abilityScoreRange = range(1, lvl + 1, 4)
-        countAbilityScoreImprovement = len(abilityScoreRange)
-        
-        abilityImprovement = key.keys() + (countAbilityScoreImprovement * 4)
+    if key[key] == obj:
+        return f"the ability checks out,\n ability[key]: {key[key]}\n objnameclass: {obj}"
     else:
-        ValueError(f"key value of {key} and {obj} do not match.")
-    
-    return abilityImprovement
+        ValueError("something is not right....")
     
     
     
