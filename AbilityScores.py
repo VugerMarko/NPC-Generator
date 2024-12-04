@@ -42,14 +42,21 @@ def proficiencyBonus():
     return lvl
 
 
-#this function does not work, needs improvement
+def abilityScoreImprovement(key, obj, increment, modifier):
+    
+    oldModifier = abilityBonus(key[obj])
+    
+    if obj in key:
+        # print(key[obj])
+        key[obj] += increment
+        newModifier = abilityBonus(key[obj]) 
 
-def abilityScoreImprovement(key, obj):
-    if key[key] == obj:
-        return f"the ability checks out,\n ability[key]: {key[key]}\n objnameclass: {obj}"
-    else:
-        ValueError("something is not right....")
-    
-    
-    
 
+    for i, num in enumerate(modifier):
+        if num == oldModifier:
+            modifier.pop(i)
+            modifier.insert(i, newModifier)
+        
+    # print(f"old modifier: {oldModifier}, new modifier: {newModifier}")
+         
+    return key, modifier

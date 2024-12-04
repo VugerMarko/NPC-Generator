@@ -20,8 +20,8 @@ def createNPC(raceList, classList):
 
         ability_Bonus = abilityBonus(Ability[key])
         abilityModifier.append(ability_Bonus)
-        #This function does not work
-        abilityScoreImprovement(Ability, objClass.classAbility)
+        
+    abilityScoreImprovement(Ability, objClass.classAbility, 2, abilityModifier)
         
 
     proficiencyBonus()
