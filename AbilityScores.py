@@ -46,12 +46,10 @@ def abilityScoreImprovement(key, obj, increment, modifier):
     
     oldModifier = abilityBonus(key[obj])
     
-    
     if obj in key:
         # print(key[obj])
         key[obj] += increment
         newModifier = abilityBonus(key[obj]) 
-
 
     for i, num in enumerate(modifier):
         if num == oldModifier:
@@ -61,3 +59,14 @@ def abilityScoreImprovement(key, obj, increment, modifier):
     print(f"old modifier: {oldModifier}, new modifier: {newModifier}")
          
     return key, modifier
+
+
+def proficientSkills(data, mainAbility):
+    proficientSkillsList = []
+    
+    for key in data.keys():
+        if key == mainAbility:
+            proficientSkillsList.append(key.keys())
+            
+    print(proficientSkillsList)
+    return proficientSkillsList

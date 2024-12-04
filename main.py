@@ -26,6 +26,8 @@ def createNPC(raceList, classList):
 
     proficiencyBonus()
     
+    
+    proficientSkills(skills, objClass.classAbility)
 
     gender = random.choice(["male", "female"])
     
