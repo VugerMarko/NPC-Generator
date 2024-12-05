@@ -1,5 +1,5 @@
 import random
-
+from database import DnDClass
 
 def roll_and_calculate_Ability():
     dice = [random.randint(1, 6) for _ in range(4)]
@@ -26,11 +26,10 @@ def abilityBonus(bonus):
         
     return modifier
 
-lvl = 0
 
-def proficiencyBonus():
+def proficiencyBonus(lvl):
     
-    lvl = random.randint(1, 20)
+    
     
     proficiencyRange = range(1, lvl + 1, 4)
     countProficiency = len(proficiencyRange)
@@ -56,23 +55,51 @@ def abilityScoreImprovement(key, obj, increment, modifier):
             modifier.pop(i)
             modifier.insert(i, newModifier)
         
-    print(f"old modifier: {oldModifier}, new modifier: {newModifier}")
+    # print(f"old modifier: {oldModifier}, new modifier: {newModifier}")
          
     return key, modifier
 
 
-def proficientSkills(data, mainAbility):
-    proficientSkillsList = []
+def calcHitDice(level, hitDiceObj):
+    rolls = level - 1
     
-    i = 0
+    rollsSum = 0
     
-    for key, value in data.items():
-        if value == mainAbility:
-            proficientSkillsList.append(key)
-        # if i <= 3:     
-        # i += 1            
-        
+    for _ in range(rolls):
+        roll = random.randint(2, hitDiceObj)
+        rollsSum += roll
+              
+    hitDiceSum = hitDiceObj + rollsSum
     
-    print(proficientSkillsList)
-    return proficientSkillsList
+    print(f"HP: {hitDiceSum}\n")
+    
+    return hitDiceSum
+
+
+def proficientSkills(skillsOfClass, ability_dict, skill_dict, abiBonus, profiBonus):
+   
+    text = skillsOfClass
+    classSkills = [skill.strip() for skill in text.split(",")]
+    
+    modifiers = []
+    
+    newSkillList = []
+    
+    for _ in range(3):
+        choice = random.choice(classSkills)
+        if choice not in newSkillList:
+            newSkillList.append(choice)
+    
+    for index, key in enumerate(ability_dict.items()):
+        for skill in skill_dict:
+            if key == skill:
+                modifier = abiBonus[index] + profiBonus
+                modifiers.append(modifier)
+                
+    print("Character is proficient in:\n")
+    for index, skill in enumerate(newSkillList):
+        #indexerror: list index out of range
+        print(f"{skill} ({modifiers[index]})\n")
+    
+    return newSkillList
 

@@ -10,6 +10,8 @@ def createNPC(raceList, classList):
     dndrace = random.choice(raceList)
     dndclass = random.choice(classList)
     
+    npcLevel = random.randint(1, 20)
+    
     objClass = DnDClass()
     objClass.loadClassName(dndclass)
     
@@ -22,12 +24,11 @@ def createNPC(raceList, classList):
         abilityModifier.append(ability_Bonus)
         
     abilityScoreImprovement(Ability, objClass.classAbility, 2, abilityModifier)
-        
-
-    proficiencyBonus()
     
+    proficiency = proficiencyBonus(npcLevel)
+    calcHitDice(npcLevel, objClass.hitDice)
     
-    proficientSkills(skills, objClass.classAbility)
+    proficientSkills(objClass.classSkills, Ability, skills, abilityModifier, proficiency)
 
     gender = random.choice(["male", "female"])
     

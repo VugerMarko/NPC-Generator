@@ -1,13 +1,16 @@
 import sqlite3
 class DnDClass:
     
-    def __init__(self, id_num = -1, className="", classAbility="", spellcaster = True):
+    def __init__(self, id_num = -1, className="", classAbility="", classSkills = "", spellcaster = True, hitDice = -1):
         self.id_num = id_num
         self.className = className
         self.classAbility = classAbility
+        self.classSkills = classSkills
         self.spellcaster = spellcaster
+        self.hitDice = hitDice
         self.connection = sqlite3.connect("Specifications.db")
         self.cursor = self.connection.cursor()
+        
         
     def loadClassName(self, className):
         self.cursor.execute("""
@@ -21,28 +24,12 @@ class DnDClass:
             self.className = results[1]
             self.classAbility = results[2]
             self.spellcaster = results[3]
+            self.classSkills = results[4]
+            self.hitDice = results[5]
         else:
             raise ValueError(f"Class with name {className} not found.")
         
 
-connection = sqlite3.connect("Specifications.db")
-
-cursor = connection.cursor()
-        
-# Create a table for storing the skills for each class
-cursor.execute("""
-    CREATE TABLE IF NOT EXISTS class_skills(
-        id INTEGER PRIMARY KEY,
-        class_id INTEGER,
-        skill_name TEXT,
-        FOREIGN KEY (class_id) REFERENCES classes(id)
-    )
-""")
-
-
-connection.commit()
-
-connection.close()
 
 #Testing the database usage
 # class1 = DnDClass()
