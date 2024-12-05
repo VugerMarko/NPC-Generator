@@ -89,7 +89,7 @@ def proficientSkills(skillsOfClass, ability_dict, skill_dict, abiBonus, profiBon
         choice = random.choice(classSkills)
         if choice not in newSkillList:
             newSkillList.append(choice)
-    
+    #I dont think this should be working becuase i didnt take ability modifiers for respectable skills i just took out somethingn else
     for index, key in enumerate(ability_dict.items()):
         for skill in skill_dict:
             if key == skill:
