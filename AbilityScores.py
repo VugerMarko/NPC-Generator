@@ -28,17 +28,14 @@ def abilityBonus(bonus):
 
 
 def proficiencyBonus(lvl):
-    
-    
-    
     proficiencyRange = range(1, lvl + 1, 4)
     countProficiency = len(proficiencyRange)
     
-    bonus = countProficiency * 2
+    bonus = countProficiency + 1
     
     print(f"level: {lvl} \nproficiency bonus: {bonus}\n")
     
-    return lvl
+    return bonus
 
 
 def abilityScoreImprovement(key, obj, increment, modifier):
@@ -81,25 +78,24 @@ def proficientSkills(skillsOfClass, ability_dict, skill_dict, abiBonus, profiBon
     text = skillsOfClass
     classSkills = [skill.strip() for skill in text.split(",")]
     
-    modifiers = []
     
-    newSkillList = []
+    newSkillList = random.sample(classSkills, 3)
     
-    for _ in range(3):
-        choice = random.choice(classSkills)
-        if choice not in newSkillList:
-            newSkillList.append(choice)
-    #I dont think this should be working becuase i didnt take ability modifiers for respectable skills i just took out somethingn else
-    for index, key in enumerate(ability_dict.items()):
-        for skill in skill_dict:
-            if key == skill:
-                modifier = abiBonus[index] + profiBonus
-                modifiers.append(modifier)
-                
-    print("Character is proficient in:\n")
-    for index, skill in enumerate(newSkillList):
-        #indexerror: list index out of range
-        print(f"{skill} ({modifiers[index]})\n")
+    results = {}
+    
+    for skill in newSkillList:
+        associated_ability = skill_dict.get(skill, None)
+        if associated_ability:    
+            ability_index = list(ability_dict.keys()).index(associated_ability)
+
+            modifier = abiBonus[ability_index] + profiBonus
+            results[skill] = modifier
+        else:
+            results[skill] = None
+    
+    
+    for skill, modifier in results.items():
+        print(f"{skill}: (+{modifier if modifier is not None else 'No associated ability'})")
     
     return newSkillList
 

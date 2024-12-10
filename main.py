@@ -29,6 +29,7 @@ def createNPC(raceList, classList):
     calcHitDice(npcLevel, objClass.hitDice)
     
     proficientSkills(objClass.classSkills, Ability, skills, abilityModifier, proficiency)
+    print("")
 
     gender = random.choice(["male", "female"])
     
