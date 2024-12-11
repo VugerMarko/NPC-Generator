@@ -33,8 +33,6 @@ def proficiencyBonus(lvl):
     
     bonus = countProficiency + 1
     
-    print(f"level: {lvl} \nproficiency bonus: {bonus}\n")
-    
     return bonus
 
 
@@ -67,8 +65,6 @@ def calcHitDice(level, hitDiceObj):
         rollsSum += roll
               
     hitDiceSum = hitDiceObj + rollsSum
-    
-    print(f"HP: {hitDiceSum}\n")
     
     return hitDiceSum
 

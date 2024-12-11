@@ -22,15 +22,14 @@ def createNPC(raceList, classList):
 
         ability_Bonus = abilityBonus(Ability[key])
         abilityModifier.append(ability_Bonus)
+    
         
     abilityScoreImprovement(Ability, objClass.classAbility, 2, abilityModifier)
     
-    proficiency = proficiencyBonus(npcLevel)
-    calcHitDice(npcLevel, objClass.hitDice)
+    proficiencyBNS = proficiencyBonus(npcLevel)
+    HP = calcHitDice(npcLevel, objClass.hitDice)
     
-    proficientSkills(objClass.classSkills, Ability, skills, abilityModifier, proficiency)
-    print("")
-
+    
     gender = random.choice(["male", "female"])
     
     prompt = f"make a short description of a {gender} {dndrace} npc who is a {dndclass}, with name on top, key personality traits and physical traits."
@@ -46,14 +45,21 @@ def createNPC(raceList, classList):
     )
     
     description = response['choices'][0]['message']['content'].strip()
+        
+    output = "Level: {} \n\nHit Points: {} \nProficiency Bonus: {} \n\nRace: {} \nClass: {}\nAbility modifier: {}\nGender: {} \n \n\n{}\n".format(npcLevel, HP, proficiencyBNS, dndrace, dndclass, objClass.classAbility, gender, description)
     
+    print(output)
     
-    output = "\nRace: {} \nClass: {}\nAbility modifier: {}\nGender: {} \n \n\n{}".format(dndrace, dndclass, objClass.classAbility, gender, description)
+    print("Character sheet:\n")
     
     for index, (key, value) in enumerate(Ability.items()):
         print(f"{key}: {value} ({abilityModifier[index]})")
+    print("")
     
-    return output
+    proficientSkills(objClass.classSkills, Ability, skills, abilityModifier, proficiencyBNS)
+    print("")
+
+    
 
 
 
