@@ -4,7 +4,7 @@ from AbilityScores import *
 from data import *
 from database import DnDClass
 
-openai.api_key = "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"
+openai.api_key = "your api key"
 
 def createNPC(raceList, classList):
     dndrace = random.choice(raceList)
